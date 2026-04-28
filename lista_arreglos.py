@@ -63,7 +63,7 @@ class lista_arreglos:
         retorna valor o None
         """
         pos = 0
-        n = len(self.llaves)
+        n = len(self.lista_llaves)
 
         while pos < n:
             if self.lista_llaves[pos] == llave:
@@ -89,5 +89,5 @@ class lista_arreglos:
         """
         i = 0
         while i < len(self.lista_llaves):
-            print("Llave:", self.llaves[i], "| Valor:", self.valores[i])
+            print("Llave:", self.lista_llaves[i], "| Valor:", self.valores[i])
             i += 1
