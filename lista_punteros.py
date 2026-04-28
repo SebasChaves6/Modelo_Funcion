@@ -119,3 +119,18 @@ class lista_punteros:
         while aux:
             print("Llave:", aux.llave, "| Valor:", aux.valor)
             aux = aux.siguiente
+
+    def limpiar(self):
+        self.clear()
+
+    def asigne(self, llave, valor):
+        self.assign(llave, valor)
+
+    def elimine(self, llave):
+        self.eliminar(llave)
+
+    def lookup(self, llave):
+        return self.obtener(llave)
+
+    def imprimir(self):
+        self.print()
