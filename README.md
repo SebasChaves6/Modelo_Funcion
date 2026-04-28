@@ -97,6 +97,9 @@ indice = h % capacidad
 Convierte strings en números.
 Distribuye las llaves en diferentes posiciones.
 Reduce colisiones en la mayoría de los casos.
+
+Esta forma de calcular el hash es bastante común porque permite que pequeñas diferencias en las llaves generen resultados distintos.
+
 - 6. Manejo de Colisiones
 
 Se utilizó el método de encadenamiento:
@@ -117,13 +120,21 @@ Existen colisiones, pero no en exceso.
 
 Esto indica que la función tiene una distribución aceptable para el tamaño de la tabla utilizada.
 
+- 8. Descripción de la redistribución (rehashing)
 
-- 8. Observaciones
+Cuando una tabla hash comienza a llenarse demasiado, es común aplicar un proceso llamado redistribución o rehashing. Consiste en crear una nueva tabla con mayor tamaño y volver a insertar todos los elementos usando la función hash.
+
+La idea es reducir la cantidad de colisiones, ya que al aumentar el tamaño de la tabla, los elementos se pueden distribuir mejor.
+
+Este proceso tiene un costo alto, ya que es necesario recorrer todos los elementos y recalcular su posición. En términos de complejidad, es un proceso de orden O(n).
+
+
+- 9. Observaciones
 La lista ordenada mantiene el orden, pero puede ser lenta al insertar.
 La lista por punteros evita mover elementos, pero es más lenta en acceso.
 La tabla hash es más rápida para búsquedas en promedio, pero no mantiene orden.
 Cada estructura tiene ventajas dependiendo del tamaño de los datos.
--  9. Conclusión
+-  10. Conclusión
 
 Se logró implementar el modelo función utilizando diferentes estructuras de datos.
 
