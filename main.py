@@ -34,28 +34,28 @@ def menu(funcion):
         if opcion == "1":
             llave = input("Llave: ")
             valor = input("Valor: ")
-            funcion.asigne(llave, valor)
+            funcion.asign(llave, valor)
 
         elif opcion == "2":
             llave = input("Llave a eliminar: ")
-            funcion.elimine(llave)
+            funcion.eliminar(llave)
 
         elif opcion == "3":
             llave = input("Llave a buscar: ")
-            valor = funcion.obtenga(llave)
+            valor = funcion.obtener(llave)
             if valor is None:
                 print("La llave no existe.")
             else:
                 print("Valor:", valor)
 
         elif opcion == "4":
-            funcion.imprima()
+            funcion.print()
 
         elif opcion == "5":
             print(funcion.llaves())
 
         elif opcion == "6":
-            funcion.limpie()
+            funcion.clear()
             print("Estructura limpiada.")
 
         elif opcion == "7":
