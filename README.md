@@ -1,7 +1,7 @@
 | Estudiante | Carné |
 |-------------|-------------------|
 | Jordan Sánchez Tencio | C4J811 |
-|   |    |
+| Sebastian Chaves Durán   | C12120 |
 
 
 Tarea Programada 1 – Primera Etapa
