@@ -1,11 +1,12 @@
-from arreglos import lista_arreglos
-from punteros import lista_punteros
-
+from lista_arreglos import lista_arreglos
+from lista_punteros import lista_punteros
+from tabla_hash import tabla_hash
 
 def escoger_estructura():
     print("=== ESCOJA ESTRUCTURA ===")
     print("1. Lista ordenada por arreglos")
     print("2. Lista ordenada por punteros")
+    print("3. Tabla hash abierta")
 
     opcion = input("Opción: ")
 
@@ -13,6 +14,8 @@ def escoger_estructura():
         return lista_arreglos()
     elif opcion == "2":
         return lista_punteros()
+    elif opcion == "3":
+        return tabla_hash()
     else:
         print("Opción inválida. Se usará lista por arreglos.")
         return lista_arreglos()
@@ -34,7 +37,7 @@ def menu(funcion):
         if opcion == "1":
             llave = input("Llave: ")
             valor = input("Valor: ")
-            funcion.asign(llave, valor)
+            funcion.assign(llave, valor)
 
         elif opcion == "2":
             llave = input("Llave a eliminar: ")
@@ -49,7 +52,7 @@ def menu(funcion):
                 print("Valor:", valor)
 
         elif opcion == "4":
-            funcion.print()
+            funcion.imprimir()
 
         elif opcion == "5":
             print(funcion.llaves())
