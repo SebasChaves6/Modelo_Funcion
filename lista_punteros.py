@@ -28,9 +28,9 @@ class lista_punteros:
         """
         self.clear()
 
-    def assign(self, llave, valor):
+    def assigne(self, llave, valor):
         """
-        Assign: inserta o actualiza
+        Assigne: inserta o actualiza
         """
         nuevo = Nodo(llave, valor)
 
@@ -59,9 +59,9 @@ class lista_punteros:
         nuevo.siguiente = aux.siguiente
         aux.siguiente = nuevo
 
-    def unassign(self, llave):
+    def eliminar(self, llave):
         """
-        Unassign: elimina por llave
+        elimina por llave
         """
         if self.cabeza is None:
             return
@@ -80,9 +80,9 @@ class lista_punteros:
         if aux.siguiente:
             aux.siguiente = aux.siguiente.siguiente
 
-    def lookup(self, llave):
+    def obtener(self, llave):
         """
-        Lookup: retorna valor o None
+        retorna valor o None
         """
         aux = self.cabeza
 
@@ -98,9 +98,9 @@ class lista_punteros:
 
         return None
 
-    def keys(self):
+    def llaves(self):
         """
-        Keys: retorna lista de llaves
+        retorna lista de llaves
         """
         res = []
         aux = self.cabeza
