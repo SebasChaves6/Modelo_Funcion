@@ -28,9 +28,9 @@ class lista_punteros:
         """
         self.clear()
 
-    def assigne(self, llave, valor):
+    def assign(self, llave, valor):
         """
-        Assigne: inserta o actualiza
+        Assign: inserta o actualiza
         """
         nuevo = Nodo(llave, valor)
 
