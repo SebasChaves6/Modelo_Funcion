@@ -34,7 +34,7 @@ class lista_arreglos:
             pos += 1
 
         # si ya existe, actualizar
-        if pos < n and self.llaves[pos] == llave:
+        if pos < n and self.lista_llaves[pos] == llave:
             self.valores[pos] = valor
             return
 
@@ -91,3 +91,21 @@ class lista_arreglos:
         while i < len(self.lista_llaves):
             print("Llave:", self.lista_llaves[i], "| Valor:", self.valores[i])
             i += 1
+
+    """
+    Métodos puente para usarlos en el main
+    """
+    def limpiar(self):
+        self.clear()
+
+    def asigne(self, llave, valor):
+        self.assign(llave, valor)
+
+    def elimine(self, llave):
+        self.eliminar(llave)
+
+    def lookup(self, llave):
+        return self.obtener(llave)
+
+    def imprimir(self):
+        self.print()
