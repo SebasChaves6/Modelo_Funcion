@@ -1,46 +1,72 @@
-from lista_arreglos import lista_arreglos
-from lista_punteros import lista_punteros
+from arreglos import lista_arreglos
+from punteros import lista_punteros
+
+
+def escoger_estructura():
+    print("=== ESCOJA ESTRUCTURA ===")
+    print("1. Lista ordenada por arreglos")
+    print("2. Lista ordenada por punteros")
+
+    opcion = input("Opción: ")
+
+    if opcion == "1":
+        return lista_arreglos()
+    elif opcion == "2":
+        return lista_punteros()
+    else:
+        print("Opción inválida. Se usará lista por arreglos.")
+        return lista_arreglos()
+
+
+def menu(funcion):
+    while True:
+        print("\n=== MENÚ FUNCIÓN ===")
+        print("1. Asignar relación")
+        print("2. Eliminar relación")
+        print("3. Buscar llave")
+        print("4. Imprimir")
+        print("5. Mostrar llaves")
+        print("6. Limpiar")
+        print("7. Salir")
+
+        opcion = input("Opción: ")
+
+        if opcion == "1":
+            llave = input("Llave: ")
+            valor = input("Valor: ")
+            funcion.asigne(llave, valor)
+
+        elif opcion == "2":
+            llave = input("Llave a eliminar: ")
+            funcion.elimine(llave)
+
+        elif opcion == "3":
+            llave = input("Llave a buscar: ")
+            valor = funcion.obtenga(llave)
+            if valor is None:
+                print("La llave no existe.")
+            else:
+                print("Valor:", valor)
+
+        elif opcion == "4":
+            funcion.imprima()
+
+        elif opcion == "5":
+            print(funcion.llaves())
+
+        elif opcion == "6":
+            funcion.limpie()
+            print("Estructura limpiada.")
+
+        elif opcion == "7":
+            funcion.done()
+            print("Saliendo...")
+            break
+
+        else:
+            print("Opción inválida.")
+
 
 if __name__ == "__main__":
-    print("=== PRUEBA ARREGLOS ===")
-    arr = lista_arreglos()
-
-    arr.assign("c", "tres")
-    arr.assign("a", "uno")
-    arr.assign("b", "dos")
-    arr.assign("b", "veinte")
-
-    arr.print()
-
-    print("lookup b:", arr.lookup("b"))
-    print("lookup x:", arr.lookup("x"))
-
-    arr.unassign("a")
-    arr.print()
-
-    print("keys:", arr.keys())
-
-    arr.clear()
-    arr.print()
-
-
-    print("\n=== PRUEBA PUNTEROS ===")
-    lista = lista_punteros()
-
-    lista.assign("c", "tres")
-    lista.assign("a", "uno")
-    lista.assign("b", "dos")
-    lista.assign("b", "veinte") 
-
-    lista.print()
-
-    print("lookup b:", lista.lookup("b"))
-    print("lookup x:", lista.lookup("x"))
-
-    lista.unassign("a")
-    lista.print()
-
-    print("keys:", lista.keys())
-
-    lista.clear()
-    lista.print()
+    funcion = escoger_estructura()
+    menu(funcion)
