@@ -7,9 +7,9 @@ class lista_arreglos:
         self.llaves = []
         self.valores = []
 
-    def clear(self):
+    def limpiar(self):
         """
-        Clear: vacia todo
+        vacia todo
         """
         self.llaves = []
         self.valores = []
@@ -20,7 +20,7 @@ class lista_arreglos:
         """
         self.clear()
 
-    def assign(self, llave, valor):
+    def assigne(self, llave, valor):
         """
         Assign: inserta o actualiza
         """
@@ -42,9 +42,9 @@ class lista_arreglos:
         self.llaves.insert(pos, llave)
         self.valores.insert(pos, valor)
 
-    def unassign(self, llave):
+    def elimine(self, llave):
         """
-        Unassign: elimina por llave
+        elimina por llave
         """
         pos = 0
         n = len(self.llaves)
@@ -58,9 +58,9 @@ class lista_arreglos:
             self.llaves.pop(pos)
             self.valores.pop(pos)
 
-    def lookup(self, llave):
+    def obtener(self, llave):
         """
-        Lookup: retorna valor o None
+        retorna valor o None
         """
         pos = 0
         n = len(self.llaves)
@@ -77,9 +77,9 @@ class lista_arreglos:
 
         return None
 
-    def keys(self):
+    def llaves(self):
         """
-        Keys: retorna lista de llaves
+        retorna lista de llaves
         """
         return self.llaves.copy()
 
