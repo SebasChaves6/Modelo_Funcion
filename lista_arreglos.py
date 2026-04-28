@@ -4,14 +4,14 @@ class lista_arreglos:
     """
     def __init__(self):
         # Init: lista vacia
-        self.llaves = []
+        self.lista_llaves = []
         self.valores = []
 
     def clear(self):
         """
         Clear: vacia todo
         """
-        self.llaves = []
+        self.lista_llaves = []
         self.valores = []
 
     def done(self):
@@ -39,7 +39,7 @@ class lista_arreglos:
             return
 
         # insertar
-        self.llaves.insert(pos, llave)
+        self.lista_llaves.insert(pos, llave)
         self.valores.insert(pos, valor)
 
     def eliminar(self, llave):
@@ -47,15 +47,15 @@ class lista_arreglos:
         elimina por llave
         """
         pos = 0
-        n = len(self.llaves)
+        n = len(self.lista_llaves)
 
         # buscar
-        while pos < n and self.llaves[pos] < llave:
+        while pos < n and self.lista_llaves[pos] < llave:
             pos += 1
 
         # eliminar si esta
-        if pos < n and self.llaves[pos] == llave:
-            self.llaves.pop(pos)
+        if pos < n and self.lista_llaves[pos] == llave:
+            self.lista_llaves.pop(pos)
             self.valores.pop(pos)
 
     def obtener(self, llave):
@@ -66,11 +66,11 @@ class lista_arreglos:
         n = len(self.llaves)
 
         while pos < n:
-            if self.llaves[pos] == llave:
+            if self.lista_llaves[pos] == llave:
                 return self.valores[pos]
 
             # ya se paso, no esta
-            if self.llaves[pos] > llave:
+            if self.lista_llaves[pos] > llave:
                 return None
 
             pos += 1
@@ -81,13 +81,13 @@ class lista_arreglos:
         """
         llaves: retorna lista de llaves
         """
-        return self.llaves.copy()
+        return self.lista_llaves.copy()
 
     def print(self):
         """
         Print: muestra contenido
         """
         i = 0
-        while i < len(self.llaves):
+        while i < len(self.lista_llaves):
             print("Llave:", self.llaves[i], "| Valor:", self.valores[i])
             i += 1
