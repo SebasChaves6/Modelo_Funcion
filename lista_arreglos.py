@@ -25,11 +25,11 @@ class lista_arreglos:
         Assign: inserta o actualiza
         """
         pos = 0
-        n = len(self.llaves)
+        n = len(self.lista_llaves)
 
         # buscar donde va
         while pos < n:
-            if self.llaves[pos] >= llave:
+            if self.lista_llaves[pos] >= llave:
                 break
             pos += 1
 
