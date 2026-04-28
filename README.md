@@ -1,93 +1,133 @@
-# ModeloFuncion
+| Estudiante | Carné |
+| Jordan Sánchez Tencio | C4J811 |
+|   |    |
 
 
+Tarea Programada 1 – Primera Etapa
+- 1. Modelo Función
 
-## Getting started
+El modelo función consiste en representar un arreglo donde a cada llave se le va asignando un valor. Funciona como si fuera un diccionario, pero hecho desde cero usando estructuras de datos.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+Las características que tiene son:
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Cada llave es única.
+A cada llave le corresponde un valor.
+Dos llaves distintas pueden tener el mismo valor.
+Las llaves son strings alfanuméricos.
+Los valores son strings de longitud fija (20 caracteres, letras minúsculas).
 
-## Add your files
+Las operaciones implementadas fueron:
 
-* [Create](https://docs.gitlab.com/user/project/repository/web_editor/#create-a-file) or [upload](https://docs.gitlab.com/user/project/repository/web_editor/#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+Asignar (Assign): inserta una nueva relación o actualiza una existente.
+Eliminar (Elimine): elimina una llave.
+Buscar (Lookup): retorna el valor asociado a una llave.
+Llaves (Keys): devuelve todas las llaves.
+Imprimir (Imprime): muestra las relaciones.
+Limpiar (Clear): vacía la estructura.
+Done: libera memoria (equivalente a limpiar en Python).
+- 2. Lista Ordenada (Estructura Genérica)
 
-```
-cd existing_repo
-git remote add origin https://git.ucr.ac.cr/SEBASTIAN.CHAVESDURAN/modelofuncion.git
-git branch -M main
-git push -uf origin main
-```
+La lista ordenada es una estructura en la cual los elementos se mantienen en orden según la llave.
 
-## Integrate with your tools
+Esto permite:
 
-* [Set up project integrations](https://git.ucr.ac.cr/SEBASTIAN.CHAVESDURAN/modelofuncion/-/settings/integrations)
+Búsquedas más rápidas que una lista desordenada (se puede cortar antes).
+Mantener siempre los datos organizados.
 
-## Collaborate with your team
+Pero:
 
-* [Invite team members and collaborators](https://docs.gitlab.com/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/user/project/merge_requests/creating_merge_requests/)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/user/project/issues/managing_issues/#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+Insertar puede ser costoso porque hay que encontrar la posición correcta.
+En algunos casos hay que mover elementos o recorrer toda la lista.
+- 3. Lista Ordenada por Arreglos
 
-## Test and Deploy
+En esta implementación se usaron dos listas:
 
-Use the built-in continuous integration in GitLab.
+una para llaves
+otra para valores
 
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/topics/autodevops/requirements/)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ci/environments/protected_environments/)
+Las posiciones corresponden entre sí.
 
-***
+Funcionamiento:
+Al insertar, se busca la posición donde debe ir la llave para mantener el orden.
+Si la llave ya existe, se actualiza el valor.
+Si no existe, se inserta en la posición correcta.
+Ventajas:
+Acceso directo por índice.
+Implementación sencilla.
+Desventajas:
+Insertar o eliminar puede ser costoso (hay que mover elementos).
+No es eficiente para listas muy grandes.
+- 4. Lista Ordenada por Punteros
 
-# Editing this README
+Se implementó usando una lista enlazada.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+Cada nodo contiene:
 
-## Suggestions for a good README
+llave
+valor
+referencia al siguiente nodo
+Funcionamiento:
+Se recorre la lista hasta encontrar la posición correcta.
+Se inserta el nodo manteniendo el orden.
+Para eliminar, se ajustan los enlaces.
+Ventajas:
+No hay que mover elementos como en arreglos.
+Inserciones más eficientes en comparación con arreglos.
+Desventajas:
+Acceso más lento (hay que recorrer la lista).
+Mayor uso de memoria por referencias.
+- 5. Tabla Hash (Abierta)
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+La tabla hash se implementó usando encadenamiento, es decir:
 
-## Name
-Choose a self-explaining name for your project.
+La tabla es una lista.
+Cada posición contiene otra lista.
+Si dos llaves generan el mismo índice, se almacenan en la misma cubeta.
+Función Hash
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+Se utilizó una función basada en el valor ASCII de los caracteres:
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+h = h * 31 + ord(c)
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+Luego se aplica módulo:
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+indice = h % capacidad
+¿Por qué funciona?
+Convierte strings en números.
+Distribuye las llaves en diferentes posiciones.
+Reduce colisiones en la mayoría de los casos.
+- 6. Manejo de Colisiones
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+Se utilizó el método de encadenamiento:
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+Si dos llaves caen en la misma posición:
+se agregan a la misma lista.
+Luego se busca dentro de esa lista.
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+Esto evita sobrescribir datos y permite almacenar múltiples elementos en una misma posición.
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+- 7. Evaluación de la Función Hash
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+Se probó la función hash con varias llaves y se observó que:
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+Las llaves se distribuyen en diferentes posiciones.
+No todas caen en el mismo índice.
+Existen colisiones, pero no en exceso.
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+Esto indica que la función tiene una distribución aceptable para el tamaño de la tabla utilizada.
 
-## License
-For open source projects, say how it is licensed.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+- 8. Observaciones
+La lista ordenada mantiene el orden, pero puede ser lenta al insertar.
+La lista por punteros evita mover elementos, pero es más lenta en acceso.
+La tabla hash es más rápida para búsquedas en promedio, pero no mantiene orden.
+Cada estructura tiene ventajas dependiendo del tamaño de los datos.
+-  9. Conclusión
+
+Se logró implementar el modelo función utilizando diferentes estructuras de datos.
+
+Se comprobó que:
+
+No existe una estructura “mejor” en todos los casos.
+La eficiencia depende del tipo de operación y del tamaño de los datos.
+La tabla hash es más eficiente en búsquedas, mientras que las listas ordenadas permiten mantener los datos organizados.
