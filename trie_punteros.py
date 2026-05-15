@@ -169,22 +169,5 @@ class trie_punteros:
     def print(self):
 
         # Imprime todas las relaciones
-        for llave in self.llaves():
-            print("Llave:", llave, "| Valor:", self.obtener(llave))
-
-    # Métodos puente para mantener el mismo estilo
-
-    def limpiar(self):
-        self.clear()
-
-    def asigne(self, llave, valor):
-        self.assign(llave, valor)
-
-    def elimine(self, llave):
-        self.eliminar(llave)
-
-    def lookup(self, llave):
-        return self.obtener(llave)
-
-    def imprimir(self):
-        self.print()
+        for llave in self.keys():
+            print("Llave:", llave, "| Valor:", self.lookup(llave))
