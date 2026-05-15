@@ -4,6 +4,8 @@ from lista_punteros import lista_punteros
 from tabla_hash import tabla_hash
 from trie_punteros import trie_punteros
 from trie_arreglos import trie_arreglos
+from abb_punteros import ModeloFuncionABBPunteros
+from abb_heap import ModeloFuncionABBHeap
 
 
 def escoger_estructura():
@@ -18,6 +20,8 @@ def escoger_estructura():
     print("3. Tabla hash abierta")
     print("4. Trie por punteros")
     print("5. Trie por arreglos")
+    print("6. ABB por punteros")
+    print("7. ABB por arreglos (Vector Heap)")
 
     # Leer la opción del usuario
     opcion = input("Opción: ")
@@ -37,6 +41,12 @@ def escoger_estructura():
 
     elif opcion == "5":
         return trie_arreglos()
+        
+    elif opcion == "6":
+        return ModeloFuncionABBPunteros()
+        
+    elif opcion == "7":
+        return ModeloFuncionABBHeap()
 
     else:
         # Si el usuario escribe algo incorrecto
@@ -54,13 +64,13 @@ def menu(funcion):
     while True:
 
         print("\n=== MENÚ FUNCIÓN ===")
-        print("1. Asignar relación")
-        print("2. Eliminar relación")
-        print("3. Buscar llave")
-        print("4. Imprimir")
-        print("5. Mostrar llaves")
-        print("6. Limpiar")
-        print("7. Salir")
+        print("1. Asignar relación (Assign)")
+        print("2. Eliminar relación (Unassign)")
+        print("3. Buscar llave (Lookup)")
+        print("4. Imprimir (Print)")
+        print("5. Mostrar llaves (Keys)")
+        print("6. Limpiar (Clear)")
+        print("7. Salir (Done)")
 
         # Leer opción del usuario
         opcion = input("Opción: ")
@@ -82,7 +92,7 @@ def menu(funcion):
             llave = input("Llave a eliminar: ")
 
             # Eliminar la llave
-            funcion.eliminar(llave)
+            funcion.unassign(llave)
 
         #BUSCAR
         elif opcion == "3":
@@ -91,7 +101,7 @@ def menu(funcion):
             llave = input("Llave a buscar: ")
 
             # Buscar valor asociado
-            valor = funcion.obtener(llave)
+            valor = funcion.lookup(llave)
 
             # Verificar si existe
             if valor is None:
@@ -103,13 +113,13 @@ def menu(funcion):
         elif opcion == "4":
 
             # Mostrar todas las relaciones
-            funcion.imprimir()
+            funcion.print()
 
         #MOSTRAR LLAVES
         elif opcion == "5":
 
             # Imprimir lista de llaves
-            print(funcion.llaves())
+            print(funcion.keys())
 
         #LIMPIAR ESTRUCTURA
         elif opcion == "6":
@@ -119,7 +129,7 @@ def menu(funcion):
 
             print("Estructura limpiada.")
 
-        #SALIR
+        # SALIR
         elif opcion == "7":
 
             # Liberar memoria
@@ -137,7 +147,7 @@ def menu(funcion):
 
 # Punto de inicio del programa
 if __name__ == "__main__":
-
+    
     # Escoger la estructura de datos
     funcion = escoger_estructura()
 
