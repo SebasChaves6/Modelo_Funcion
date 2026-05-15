@@ -42,7 +42,7 @@ class lista_arreglos:
         self.lista_llaves.insert(pos, llave)
         self.valores.insert(pos, valor)
 
-    def eliminar(self, llave):
+    def unassign(self, llave):
         """
         elimina por llave
         """
@@ -58,7 +58,7 @@ class lista_arreglos:
             self.lista_llaves.pop(pos)
             self.valores.pop(pos)
 
-    def obtener(self, llave):
+    def lookup(self, llave):
         """
         retorna valor o None
         """
@@ -77,9 +77,9 @@ class lista_arreglos:
 
         return None
 
-    def llaves(self):
+    def keys(self):
         """
-        llaves: retorna lista de llaves
+        keys: retorna lista de llaves
         """
         return self.lista_llaves.copy()
 
@@ -91,21 +91,3 @@ class lista_arreglos:
         while i < len(self.lista_llaves):
             print("Llave:", self.lista_llaves[i], "| Valor:", self.valores[i])
             i += 1
-
-    """
-    Métodos puente para usarlos en el main
-    """
-    def limpiar(self):
-        self.clear()
-
-    def asigne(self, llave, valor):
-        self.assign(llave, valor)
-
-    def elimine(self, llave):
-        self.eliminar(llave)
-
-    def lookup(self, llave):
-        return self.obtener(llave)
-
-    def imprimir(self):
-        self.print()

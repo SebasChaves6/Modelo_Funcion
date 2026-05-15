@@ -59,7 +59,7 @@ class lista_punteros:
         nuevo.siguiente = aux.siguiente
         aux.siguiente = nuevo
 
-    def eliminar(self, llave):
+    def unassign(self, llave):
         """
         elimina por llave
         """
@@ -80,7 +80,7 @@ class lista_punteros:
         if aux.siguiente:
             aux.siguiente = aux.siguiente.siguiente
 
-    def obtener(self, llave):
+    def lookup(self, llave):
         """
         retorna valor o None
         """
@@ -98,7 +98,7 @@ class lista_punteros:
 
         return None
 
-    def llaves(self):
+    def keys(self):
         """
         retorna lista de llaves
         """
@@ -119,18 +119,3 @@ class lista_punteros:
         while aux:
             print("Llave:", aux.llave, "| Valor:", aux.valor)
             aux = aux.siguiente
-
-    def limpiar(self):
-        self.clear()
-
-    def asigne(self, llave, valor):
-        self.assign(llave, valor)
-
-    def elimine(self, llave):
-        self.eliminar(llave)
-
-    def lookup(self, llave):
-        return self.obtener(llave)
-
-    def imprimir(self):
-        self.print()

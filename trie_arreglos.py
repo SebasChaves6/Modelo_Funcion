@@ -116,7 +116,7 @@ class trie_arreglos:
         actual.es_final = True
         actual.valor = valor
 
-    def obtener(self, llave):
+    def lookup(self, llave):
 
         # Si la llave no es válida retorna None
         if not self.validar_llave(llave):
@@ -150,7 +150,7 @@ class trie_arreglos:
 
         return False
 
-    def eliminar(self, llave):
+    def unassign(self, llave):
 
         # Si la llave no es válida no hace nada
         if not self.validar_llave(llave):
@@ -192,7 +192,7 @@ class trie_arreglos:
         # Inicia el borrado desde la raíz
         borrar(self.raiz, 0)
 
-    def llaves(self):
+    def keys(self):
 
         # Lista donde se guardan las llaves
         resultado = []
@@ -222,22 +222,5 @@ class trie_arreglos:
     def print(self):
 
         # Imprime todas las relaciones
-        for llave in self.llaves():
-            print("Llave:", llave, "| Valor:", self.obtener(llave))
-
-    # Métodos puente para mantener el mismo estilo
-
-    def limpiar(self):
-        self.clear()
-
-    def asigne(self, llave, valor):
-        self.assign(llave, valor)
-
-    def elimine(self, llave):
-        self.eliminar(llave)
-
-    def lookup(self, llave):
-        return self.obtener(llave)
-
-    def imprimir(self):
-        self.print()
+        for llave in self.keys():
+            print("Llave:", llave, "| Valor:", self.lookup(llave))

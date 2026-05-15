@@ -81,7 +81,7 @@ class trie_punteros:
         actual.es_final = True
         actual.valor = valor
 
-    def obtener(self, llave):
+    def lookup(self, llave):
 
         # Si la llave no es válida retorna None
         if not self.validar_llave(llave):
@@ -104,7 +104,7 @@ class trie_punteros:
 
         return None
 
-    def eliminar(self, llave):
+    def unassign(self, llave):
 
         # Si la llave no es válida no hace nada
         if not self.validar_llave(llave):
@@ -146,7 +146,7 @@ class trie_punteros:
         # Empezar borrado desde la raíz
         borrar(self.raiz, 0)
 
-    def llaves(self):
+    def keys(self):
 
         # Lista para guardar llaves
         resultado = []

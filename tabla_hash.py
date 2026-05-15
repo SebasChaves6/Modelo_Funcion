@@ -63,7 +63,7 @@ class tabla_hash:
         cubeta.append([llave, valor])
         self.tamano += 1
 
-    def eliminar(self, llave):
+    def unassign(self, llave):
         """
         Elimina una llave si existe
         """
@@ -78,7 +78,7 @@ class tabla_hash:
                 return
             i += 1
 
-    def obtener(self, llave):
+    def lookup(self, llave):
         """
         Busca una llave y devuelve su valor
         """
@@ -91,7 +91,7 @@ class tabla_hash:
 
         return None
 
-    def llaves(self):
+    def keys(self):
         """
         Devuelve todas las llaves almacenadas
         """
@@ -110,20 +110,3 @@ class tabla_hash:
         for cubeta in self.tabla:
             for par in cubeta:
                 print("Llave:", par[0], "| Valor:", par[1])
-
-    # ===== Métodos puente (para el menú) =====
-
-    def limpie(self):
-        self.clear()
-
-    def asigne(self, llave, valor):
-        self.assign(llave, valor)
-
-    def elimine(self, llave):
-        self.eliminar(llave)
-
-    def lookup(self, llave):
-        return self.obtener(llave)
-
-    def imprimir(self):
-        self.print()
